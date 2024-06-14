@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    protected const STATUS = [
-        0 => 'Pending',
-        1 => 'Delivered',
-        2 => 'Canceled',
+    const STATUS = [
+        0 => 'Pendente',
+        1 => 'Entregue',
+        2 => 'Cancelada',
     ];
-    
-    protected $fillable = ['customer_name', 'delivery_date', 'status', 'updated_at'];
+
+    protected $fillable = ['customer_name', 'delivery_date', 'status', 'created_at','updated_at'];
 
     public function getStatusAttribute($value)
     {
