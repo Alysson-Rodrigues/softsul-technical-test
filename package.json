@@ -4,6 +4,7 @@
     "scripts": {
         "services:up": "./vendor/bin/sail up -d && ./vendor/bin/sail npm install",
         "services:down": "./vendor/bin/sail down",
+        "deploy": "./vendor/bin/sail up -d && ./vendor/bin/sail artisan key:generate && ./vendor/bin/sail artisan migrate --seed && npm run dev",
         "dev": "npm run services:up && vite",
         "build": "vite build"
     },
