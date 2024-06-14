@@ -2,7 +2,9 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
+        "services:up": "./vendor/bin/sail up -d && ./vendor/bin/sail npm install",
+        "services:down": "./vendor/bin/sail down",
+        "dev": "npm run services:up && vite",
         "build": "vite build"
     },
     "devDependencies": {

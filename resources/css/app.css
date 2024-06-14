@@ -78,3 +78,12 @@
         --radius: 1rem;
     }
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    @apply absolute right-2;
+}
+
+input[type="date"] {
+    width: 100%;
+    display: flex;
+}
