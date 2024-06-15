@@ -24,7 +24,7 @@ class OrdersController extends Controller
             $order = new Order([
                 'customer_name' => $request->get('customer_name'),
                 'delivery_date' => $request->get('delivery_date'),
-                'status' => $request->get('status'),
+                'status' => $request->get('status') ?? 0,
             ]);
             $order->save();
         } catch (\Exception $e) {
@@ -37,6 +37,8 @@ class OrdersController extends Controller
     public function update(Request $request, $id)
     {
         $order = Order::findOrFail($id);
+        if ($request->get('delivery_date'))
+            $order->status = 1;
         $order->update($request->all());
         $orders = Order::all();
         $status = Order::STATUS;
